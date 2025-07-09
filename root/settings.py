@@ -1,6 +1,11 @@
+import os
 from datetime import timedelta
 from os.path import join
 from pathlib import Path
+
+from dotenv import load_dotenv
+
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-u)@j8&i)o3_6a&q*qj(8oc(y3en4*uw@@v*qpl3d@*urq%ic(&'
@@ -114,29 +119,26 @@ REST_FRAMEWORK = {
     }
 }
 
-
 SPECTACULAR_SETTINGS = {
     'TITLE': 'Your Project API',
     'DESCRIPTION': 'Your project description',
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
-    'COMPONENT_SPLIT_REQUEST': True, # Media file uchun
+    'COMPONENT_SPLIT_REQUEST': True,  # Media file uchun
 }
 
 AUTH_USER_MODEL = 'user.User'
 
-
 # -------------- EMAIL CONFIG ---------------
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'  # SMTP server host
-EMAIL_PORT = 465  # SMTP server port (587 for TLS, 465 for SSL)
-EMAIL_USE_TLS = True  # True for TLS, False for SSL
-EMAIL_HOST_USER = 'absaitovdev@gmail.com'  # SMTP server username
-EMAIL_HOST_PASSWORD = 'jvocckasugxjwhky'  # SMTP server password
-EMAIL_USE_SSL = False  # Set to True if using SSL
-DEFAULT_FROM_EMAIL = 'absaitovdev@gmail.com'  # Default sender email addres
-
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 465
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_USE_SSL = False
+DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
 
 # --------------- JWT CONFIG ------------------
 
