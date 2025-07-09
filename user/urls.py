@@ -24,12 +24,11 @@ urlpatterns = [
 
 # --------------------- profile --------------------
 urlpatterns += [
-    path("profile/about" , ProfileAPIView.as_view()),
-    path("profile/update" , ProfileUpdateAPIView.as_view()),
+    path("profile/about", ProfileAPIView.as_view()),
+    path("profile/update", ProfileUpdateAPIView.as_view()),
     # path("profile/update" , ProfileUpdateAPIView.as_view()),
-    path("profile/list" , ProfileListAPIView.as_view()),
-    path("profile/<int:pk>" , ProfileDestroyAPIView.as_view()),
+    path("profile/list", ProfileListAPIView.as_view()),
+    path("profile/<int:pk>", ProfileDestroyAPIView.as_view()),
 ]
 
 urlpatterns += router.urls
-

@@ -1,4 +1,6 @@
 from rest_framework.throttling import SimpleRateThrottle
+
+
 class ForLoginRateThrottle(SimpleRateThrottle):
     scope = 'for_login'
 

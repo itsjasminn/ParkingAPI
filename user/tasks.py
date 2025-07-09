@@ -1,11 +1,11 @@
-import smtplib, ssl
-from email.mime.text import MIMEText
+import smtplib
 from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
 from root.settings import EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, EMAIL_HOST, EMAIL_PORT
 
 
-def send_email(receiver_email , message_text):
+def send_email(receiver_email, message_text):
     sender_email = EMAIL_HOST_USER
     password = EMAIL_HOST_PASSWORD
     message = MIMEMultipart("alternative")
